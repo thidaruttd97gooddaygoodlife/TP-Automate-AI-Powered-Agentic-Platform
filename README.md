@@ -1,7 +1,5 @@
 # ✨ TP-Automate: AI-Powered Agentic Platform
 
----
-
 ## 🎯 Goals    
 
 **TP-Automate** transforms how automotive enterprises handle service claims and customer support using cutting-edge AI:
