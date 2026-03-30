@@ -1,15 +1,8 @@
-# ✨ TP-Automate 
-### Unified AI Service Platform for Automotive Enterprises
-
-[![Status](https://img.shields.io/badge/status-alpha-yellow)]() 
-[![Version](https://img.shields.io/badge/version-0.3.0-blue)]() 
-[![License](https://img.shields.io/badge/license-MIT-green)]()
-
-*Redefining automotive service operations with AI-powered claims, knowledge management, and intelligent scheduling.*
+# ✨ TP-Automate: AI-Powered Agentic Platform
 
 ---
 
-## 🎯 What We Do
+## 🎯 Goals    
 
 **TP-Automate** transforms how automotive enterprises handle service claims and customer support using cutting-edge AI:
 
@@ -150,31 +143,6 @@ Deployment:  Docker · Any cloud
 
 ---
 
-## 🚀 Project Structure
-
-```
-TP-Automate/
-├─ frontend/                 Next.js application
-│  ├─ app/                  Pages (customer, admin, auth)
-│  ├─ components/           UI components (chat, dashboard, tables)
-│  └─ lib/                  API client, auth hooks
-│
-├─ backend/                  FastAPI application
-│  ├─ app/
-│  │  ├─ main.py           API entry point
-│  │  ├─ services/         Vision, RAG, agents, token routing
-│  │  ├─ agents/           LangGraph agentic logic
-│  │  ├─ core/             Auth, config, JWT
-│  │  ├─ models/           Pydantic schemas
-│  │  └─ tools/            Agent tools
-│  └─ requirements.txt
-│
-├─ docker-compose.yml        Local development stack
-└─ README.md (this file)
-```
-
----
-
 ## 🔗 What Happens Under the Hood
 
 ### When Customer Uploads Claim Photos
@@ -231,17 +199,6 @@ TP-Automate/
 
 ---
 
-## 📞 Learn More
-
-For detailed documentation and setup guides, see:
-
-- **[PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)** — Complete architecture deep-dive
-- **[GITHUB_SETUP.md](GITHUB_SETUP.md)** — Security & deployment setup
-- **[CODE_CLEANUP.md](CODE_CLEANUP.md)** — Code quality roadmap
-- **[QUICK_START_GIT.md](QUICK_START_GIT.md)** — Getting started
-
----
-
 ## 🎯 What Makes This Different
 
 | Feature | Typical System | TP-Automate |
@@ -279,130 +236,3 @@ Instead of pieces (CRM, ticketing, knowledge base, scheduling), we're creating *
 - Staff saves hours on repetitive work
 - Operations see real-time intelligence
 - Costs are transparent and optimized
-
----
-
-## 📚 API Summary
-
-**Core Endpoints** (20+ total)
-
-| Endpoint | Does What |
-|----------|-----------|
-| `POST /smart-claim` | Analyze claim photos with AI |
-| `POST /manual-query` | Search knowledge base + answer |
-| `POST /booking-assistant` | Find appointment slot with AI |
-| `GET /claims/inbox` | View submitted claims (admin) |
-| `POST /document-ingest` | Upload manual/bulletin (admin) |
-| `GET /token-usage` | View API cost breakdown (admin) |
-
-**For full API reference:** See [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md#-api-reference)
-
----
-
-## 🚢 Deployment
-
-**Local Development:**
-```bash
-docker-compose up --build
-# Frontend runs at http://localhost:3000
-# Backend API at http://localhost:8000
-```
-
-**Productions:**
-- Docker images ready
-- Environment variables for any cloud
-- PostgreSQL connection string
-- Groq API key required
-
----
-
-## 🤝 Contributing
-
-We love collaborators! Please:
-
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/your-idea`
-3. Commit: `git commit -m "feat: add something awesome"`
-4. Push: `git push origin feature/your-idea`
-5. Open Pull Request
-
-**Code style:** Python (PEP 8) + TypeScript (strict mode)
-
----
-
-## 📄 License
-
-**MIT License** — Use freely in commercial projects
-
----
-
-## 👥 Built By
-
-**Tri Petch IT Solutions**
-
-Bringing AI to automotive service operations. 🚗 ⚡
-
----
-
-## 🎬 Next Steps
-
-👉 **Want to try it?** Clone the repo and run 👀
-
-👉 **Questions?** Check [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md) for architecture deep-dive
-
-👉 **Ready for production?** See [GITHUB_SETUP.md](GITHUB_SETUP.md)
-
----
-
-**⭐ If you find this useful, please star the repository!**
-
-*Last updated: 2026-03-30 | Version 0.3.0 (Alpha)*
-
-
-## Business Rules Implemented
-
-1. Privacy First
-: PII is redacted before logging through `backend/app/services/pii.py`.
-2. Context Window Management
-: RAG context is truncated before prompt assembly in `backend/app/services/rag_service.py`.
-3. Chain-of-Thought Style Trace
-: Agent intermediate steps are exposed as structured reasoning logs in booking/agent flows.
-4. Vision to Audit Mapping
-: Submitting a Smart Claim inserts a record into the in-memory claim inbox used by the admin Inbox Audit dashboard.
-5. Cost Optimization
-: Token usage is tracked globally and per-model, enabling a model breakdown in Token Control.
-
-## Important Files
-
-- `backend/app/main.py`: core FastAPI routes and claim-to-audit mapping
-- `backend/app/services/vision_service.py`: multimodal vehicle damage diagnosis
-- `backend/app/services/rag_service.py`: Chroma-backed manual retrieval
-- `backend/app/services/token_router.py`: token accounting and model routing
-- `backend/app/tools/service_tools.py`: scheduling availability and alternative slot suggestions
-- `frontend/app/page.tsx`: Smart Claim tab
-- `frontend/app/support/page.tsx`: AI Support tab
-- `frontend/app/booking/page.tsx`: Easy Booking tab
-- `frontend/app/admin/page.tsx`: Inbox Audit tab
-- `frontend/app/admin/brain-studio/page.tsx`: Brain Studio tab
-- `frontend/app/admin/token-control/page.tsx`: Token Control tab
-- `frontend/components/UserSidebar.tsx`: customer navigation
-- `frontend/components/AdminSidebar.tsx`: staff/admin navigation
-
-## Production Notes
-
-This is a production-oriented prototype, not a finished enterprise deployment. Before going live, add:
-
-1. Persistent database storage instead of in-memory claim records
-2. Real authentication and session management
-3. Real OCR pipeline for warranty book photos
-4. Centralized observability and audit logs
-5. Rate limiting and secret management
-
-## Docker
-
-```bash
-docker compose up --build
-```
-
-- Backend: `http://localhost:8000`
-- Frontend: `http://localhost:3000`
