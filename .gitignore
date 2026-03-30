@@ -1,0 +1,106 @@
+# ==================== ENVIRONMENT ====================
+backend/.env
+backend/.env.local
+backend/.env.*.local
+frontend/.env.local
+frontend/.env.local.example
+
+# ==================== PYTHON ====================
+.venv/
+venv/
+env/
+*.venv/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+
+# ==================== DATABASE & DATA ====================
+backend/chroma_db/
+chroma_db/
+*.db
+*.sqlite3
+*.sqlite
+backend/data/feedback_loop/
+backend/data/
+
+# ==================== NODE & FRONTEND ====================
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+node_modules/
+.next/
+out/
+
+# ==================== IDE & EDITOR ====================
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ==================== OS SPECIFIC ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==================== LOGS & TEMP ====================
+*.log
+backend_out.txt
+backend_err.txt
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ==================== TESTING ====================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# ==================== BUILD & CACHE ====================
+.turbo/
+*.tsbuildinfo
+
+# ==================== INTERNAL DOCUMENTATION ====================
+# Keep only README.md public, hide internal setup/architecture docs
+PROJECT_OVERVIEW.md
+GITHUB_SETUP.md
+CODE_CLEANUP.md
+PROJECT_STRUCTURE.md
+QUICK_START_GIT.md
+UPLOAD_CHECKLIST.md
+TH_EN_SUMMARY.md
+SETUP_SUMMARY.txt
+
+# ==================== MISC ====================
+.env.development
+.env.test
+.env.staging

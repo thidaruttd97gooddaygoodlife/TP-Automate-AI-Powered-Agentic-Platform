@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-red: #cc0000;
+  --panel-bg: #0f172a;
+  --slate-ink: #e2e8f0;
+  --neutral-bg: #020617;
+  --muted-border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #e2e8f0;
+  background: radial-gradient(circle at 20% 0%, #111827 0%, #020617 45%, #01040b 100%);
+  font-family: "Sarabun", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dashboard-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+@keyframes vehiclePulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.35);
+  }
+  50% {
+    transform: scale(1.06) rotate(-2deg);
+    box-shadow: 0 0 0 12px rgba(204, 0, 0, 0.08);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+  }
+}
+
+.vehicle-pulse {
+  animation: vehiclePulse 1.6s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-shell {
+    grid-template-columns: 1fr;
+  }
+}
