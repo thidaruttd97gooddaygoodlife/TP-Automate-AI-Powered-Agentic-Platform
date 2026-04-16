@@ -116,67 +116,6 @@ Booked ✓
 
 ---
 
-## ✨ Key Capabilities
-
-- ✅ **Vision Intelligence** — Extract vehicle info from photos automatically
-- ✅ **Semantic Search** — Find answers from 1000s of documents instantly
-- ✅ **Intelligent Scheduling** — AI proposes alternatives, not just slots  
-- ✅ **Multi-language** — Thai + English out of the box
-- ✅ **Real-time Dashboard** — Track costs, latency, token usage live
-- ✅ **Zero External Leakage** — Knowledge stays within your database
-- ✅ **Role-based Access** — Customer vs Admin vs Staff views
-- ✅ **WebSocket Support** — Real-time queue updates for customers
-
----
-
-## 📊 Tech Stack at a Glance
-
-```
-Frontend:    Next.js 14 · TypeScript · Tailwind · WebSocket
-Backend:     FastAPI · SQLAlchemy · Python 3.10+
-AI/ML:       Groq · Gemini Vision · HuggingFace · LangGraph
-Databases:   PostgreSQL + ChromaDB  
-Deployment:  Docker · Any cloud
-```
-
----
-
-## 🔗 What Happens Under the Hood
-
-### When Customer Uploads Claim Photos
-
-1. Frontend captures 2 JPEG images
-2. Sends to `/smart-claim` endpoint
-3. **Vision service** calls Groq + Gemini in parallel
-4. Extracts: VIN, policy status, damage severity, recommended parts
-5. Stores claim record + scores in PostgreSQL
-6. Admin dashboard flags high-priority claims
-7. Token router logs usage for billing
-
-### When Customer Asks Support Question
-
-1. Frontend sends query to `/manual-query`
-2. **RAG service** embeds question locally (no API cost!)
-3. Searches ChromaDB for similar documents
-4. Passes top-3 results + question to Groq LLM
-5. LLM generates answer with document citations
-6. Frontend shows answer + confidence score
-7. All within 2-3 seconds
-
-### When Customer Books Appointment
-
-1. Frontend calls `/booking-assistant` with preferred time
-2. **LangGraph agent** reads request
-3. Checks database for availability
-4. If available → Confirm immediately
-5. If not → Generate 3 intelligent alternatives
-   - Next day same time
-   - Earlier by 2 hours  
-   - Different day but same service
-6. Customer picks one, confirmed in DB
-
----
-
 ## 👥 Who's Using This
 
 - **Automotive service centers** — Fast claims processing
@@ -184,16 +123,6 @@ Deployment:  Docker · Any cloud
 - **Customer support teams** — 24/7 AI assistant
 - **Operations teams** — Real-time analytics dashboard
 - **Inventory managers** — Smart parts recommendations
-
----
-
-## � Security by Default
-
-- ✅ **Role-based access control** — Customer ≠ Admin ≠ Staff
-- ✅ **API key isolation** — Secrets in `.env`, not in code
-- ✅ **Data sanitization** — PII protection built-in
-- ✅ **JWT authentication** — Stateless, scalable auth
-- ✅ **Token tracking** — Audit who used what
 
 ---
 
@@ -226,10 +155,6 @@ Deployment:  Docker · Any cloud
 ---
 
 ## 💡 Vision
-
-We're building the **operating system for automotive service.**
-
-Instead of pieces (CRM, ticketing, knowledge base, scheduling), we're creating **one unified AI experience** where:
 - Customers self-serve instantly
 - Staff saves hours on repetitive work
 - Operations see real-time intelligence
